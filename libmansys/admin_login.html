@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Admin Login</title>
+    <script>
+        function validateForm(event) {
+            const username = document.forms["loginForm"]["username"].value;
+            const password = document.forms["loginForm"]["password"].value;
+
+            if (username === "" || password === "") {
+                alert("Both fields are required.");
+                event.preventDefault(); // Prevent form submission
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Admin Login</h2>
+    <form name="loginForm" action="admin_login.php" method="POST" onsubmit="validateForm(event)">
+        <label for="username">Username:</label>
+        <input type="text" name="username" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br>
+
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>
