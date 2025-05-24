@@ -8,7 +8,7 @@ if ($conn->connect_error) {
 }
 
 // Fetch books
-$sql = "SELECT Title, Author FROM Books"; // Adjust fields as necessary
+$sql = "SELECT Title, Author, image_url FROM Books"; // Include image_url in the query
 $result = $conn->query($sql);
 
 $books = [];

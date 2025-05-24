@@ -1,81 +1,121 @@
-/* admin_dashboard.css */
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+body{
     margin: 0;
-    padding: 20px;
+}
+#dashboardMainContainer{
+    display: flex;
+    flex-direction: row;
+}
+div.dashboard_sidebar{
+    width: 20%;
+    background: lightgreen;
+    height: 500vh;
+}
+div.dashboard_content_container{
+    width: 80%;
+    background: #f4f6f9;
 }
 
-h1 {
+div.dashboard_sidebar_admin{
     text-align: center;
-    color: #333;
+    position: relative;
+    padding: 10px;
+    border-bottom: 1px solid black;
+    font-size: 20px;
+    text-transform: uppercase;
 }
-
-h2 {
-    color: #444;
-    margin-top: 30px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 500px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+ul.dashboard_menu_lists{
+    margin-top: 20px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
-
-form {
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 500px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+ul.dashboard_menu_lists li{
+    padding: 15px 15px;
+    text-transform: uppercase;
 }
-
-label {
+ul.dashboard_menu_lists li a{
+    text-decoration: none;
+    color: black;
+    height: 100%;
     display: block;
-    margin-bottom: 8px;
+    font-size: 20px;
+}
+ul.dashboard_menu_lists li.menuActive{
+    background: white;
+    color: #FFFFFF;
+}
+ul.dashboard_menu_lists li:hover{
+    background: white;
+    color: #FFFFFF;
+    transition: 0.3 all;
+}
+div.dashboard_topNav{
+    background: white;
+    padding: 20px;  
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+}
+div.dashboard_topNav a{
+    color: #848383;
+    font-size: 20px;
+    text-decoration: none;
+}
+a#toggleBtn{
+    float: left;
+}
+div.dashboard_topNav h4{
+    margin: 0;
+}
+a#logoutBtn{
+    float: right;
+}
+div.dashboard_content{
+    padding: 10px 20px 20px 20px;
+}
+div.dashboard_content_main{
+    background: white;
+    min-height: 800px;
+    height: 100%;
+}
+.dashboard_content {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard_content h2,
+.dashboard_content h3 {
+    color: #34495e;
+}
+
+.dashboard_content label {
+    display: block;
+    margin-top: 10px;
     font-weight: bold;
 }
 
-input[type="text"],
-input[type="number"] {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+.dashboard_content input[type="text"],
+.dashboard_content input[type="number"],
+.dashboard_content select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
 }
 
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #5cb85c;
+.dashboard_content button {
+    background-color: #2980b9;
     color: white;
     border: none;
-    border-radius: 5px;
+    padding: 10px 15px;
+    margin-top: 10px;
     cursor: pointer;
-    font-size: 16px;
+    border-radius: 4px;
 }
 
-button:hover {
-    background-color: #4cae4c;
-}
-
-h3 {
-    margin-top: 20px;
-    color: #555;
-}
-
-@media (max-width: 600px) {
-    form {
-        padding: 15px;
-        margin: 10px;
-    }
-
-    input[type="text"],
-    input[type="number"] {
-        width: 100%;
-    }
+.dashboard_content button:hover {
+    background-color: #3498db;
 }

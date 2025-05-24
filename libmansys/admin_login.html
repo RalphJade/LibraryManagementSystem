@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Admin Login</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="icon" href="images/favicon.ico" type="">
+    <title>Admin Login - Library Management System</title>
     <script>
         function validateForm(event) {
             const username = document.forms["loginForm"]["username"].value;
@@ -18,15 +19,29 @@
     </script>
 </head>
 <body>
-    <h2>Admin Login</h2>
-    <form name="loginForm" action="admin_login.php" method="POST" onsubmit="validateForm(event)">
-        <label for="username">Username:</label>
-        <input type="text" name="username" required><br>
-
-        <label for="password">Password:</label>
-        <input type="password" name="password" required><br>
-
-        <button type="submit">Login</button>
-    </form>
+    <div class="banner">
+            <img src="images/logo.jpg" alt="USM Library" id="logo">
+    </div>
+    <div class="container">
+        <div class="loginHeader">
+            <h2>Admin Login</h2>
+        </div>
+        <div class="loginBody">
+            <form name="loginForm" action="admin_login.php" method="POST" onsubmit="validateForm(event)">
+                <div class="loginInputsContainer">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" required><br>
+                </div>
+                <div class="loginInputsContainer">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" required><br>
+                </div>
+                <div class="loginButtonContainer">
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
 </body>
 </html>

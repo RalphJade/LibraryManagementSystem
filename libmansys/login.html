@@ -3,24 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="icon" href="images/favicon.ico" type="">
+    <title>Login - USM Library</title>
 </head>
 <body>
-
-    <div>
-        <form action="login.php" method="POST">
-            <h2>Login</h2>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-        
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-        
-            <button type="submit">Login</button>
-        </form>
+    <div class="banner">
+            <img src="images/logo.jpg" alt="USM Library" id="logo">
     </div>
-    <p>Don't have an account? <a href="register.html">Register here</a></p>
+    <div class="container">
+        <div class="loginHeader">
+            <h1>Login</h1>
+            <h2>USM Library</h2>
+        </div>
+        <div class="loginBody">
+            <form action="login.php" method="POST">
+                <div class="loginInputsContainer">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="loginInputsContainer">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <div class="loginButtonContainer">
+                    <button type="submit">Login</button>
+                </div>
+                <p class="registration-prompt">Don't have an account? <a href="register.html"> Register here</a></p>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
 

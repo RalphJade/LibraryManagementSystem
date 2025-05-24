@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2025 at 07:20 AM
+-- Generation Time: May 24, 2025 at 04:17 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -34,15 +34,16 @@ CREATE TABLE `books` (
   `CategoryID` int(11) DEFAULT NULL,
   `ISBN` varchar(13) NOT NULL,
   `AvailableCopies` int(11) DEFAULT 1,
-  `CreatedAt` datetime DEFAULT current_timestamp()
+  `CreatedAt` datetime DEFAULT current_timestamp(),
+  `image_url` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `books`
 --
 
-INSERT INTO `books` (`BookID`, `Title`, `Author`, `CategoryID`, `ISBN`, `AvailableCopies`, `CreatedAt`) VALUES
-(1, 'a', 'b', 2, '1', 2, '2025-05-02 13:53:26');
+INSERT INTO `books` (`BookID`, `Title`, `Author`, `CategoryID`, `ISBN`, `AvailableCopies`, `CreatedAt`, `image_url`) VALUES
+(1, 'Human-Computer Interaction', 'Alan Dix', 2, '1', 2, '2025-05-02 13:53:26', 'images/HumanComputerInteraction.jpg');
 
 -- --------------------------------------------------------
 
