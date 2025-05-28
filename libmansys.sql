@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2025 at 04:17 PM
+-- Generation Time: May 28, 2025 at 04:46 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -43,7 +43,8 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`BookID`, `Title`, `Author`, `CategoryID`, `ISBN`, `AvailableCopies`, `CreatedAt`, `image_url`) VALUES
-(1, 'Human-Computer Interaction', 'Alan Dix', 2, '1', 2, '2025-05-02 13:53:26', 'images/HumanComputerInteraction.jpg');
+(1, 'Human-Computer Interaction', 'Alan Dix', 2, '1', 2, '2025-05-02 13:53:26', '../images/HumanComputerInteraction.jpg'),
+(4, 'Computational Science and Engineering', 'Gilbert Strang', NULL, '9780961408817', 1, '2025-05-26 12:12:33', '../images/ComputationalScienceandEngineering.jpg');
 
 -- --------------------------------------------------------
 
@@ -68,25 +69,8 @@ INSERT INTO `borrowings` (`BorrowID`, `UserID`, `BookID`, `BorrowDate`, `DueDate
 (1, 1, 1, '2025-05-03 14:24:35', '2025-05-17 08:24:35', '2025-05-03 14:30:53'),
 (2, 1, 1, '2025-05-03 14:30:43', '2025-05-17 08:30:43', '2025-05-03 14:31:18'),
 (3, 1, 1, '2025-05-03 14:34:54', '2025-05-17 08:34:54', '2025-05-03 14:35:12'),
-(4, 1, 1, '2025-05-03 14:36:34', '2025-05-17 08:36:34', '2025-05-03 14:37:00');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `categories`
---
-
-CREATE TABLE `categories` (
-  `CategoryID` int(11) NOT NULL,
-  `CategoryName` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `categories`
---
-
-INSERT INTO `categories` (`CategoryID`, `CategoryName`) VALUES
-(2, 'Engineering');
+(4, 1, 1, '2025-05-03 14:36:34', '2025-05-17 08:36:34', '2025-05-03 14:37:00'),
+(5, 1, 1, '2025-05-26 07:30:25', '2025-06-09 01:30:25', '2025-05-26 07:30:55');
 
 -- --------------------------------------------------------
 
@@ -106,7 +90,8 @@ CREATE TABLE `returns` (
 --
 
 INSERT INTO `returns` (`ReturnID`, `BorrowID`, `ReturnDate`, `Condition`) VALUES
-(1, 4, '2025-05-03 14:37:00', 'good');
+(1, 4, '2025-05-03 14:37:00', 'good'),
+(2, 5, '2025-05-26 07:30:55', 'new');
 
 -- --------------------------------------------------------
 
@@ -139,8 +124,7 @@ INSERT INTO `users` (`UserID`, `Username`, `Password`, `Email`, `Role`, `Created
 --
 ALTER TABLE `books`
   ADD PRIMARY KEY (`BookID`),
-  ADD UNIQUE KEY `ISBN` (`ISBN`),
-  ADD KEY `CategoryID` (`CategoryID`);
+  ADD UNIQUE KEY `ISBN` (`ISBN`);
 
 --
 -- Indexes for table `borrowings`
@@ -149,13 +133,6 @@ ALTER TABLE `borrowings`
   ADD PRIMARY KEY (`BorrowID`),
   ADD KEY `UserID` (`UserID`),
   ADD KEY `BookID` (`BookID`);
-
---
--- Indexes for table `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`CategoryID`),
-  ADD UNIQUE KEY `CategoryName` (`CategoryName`);
 
 --
 -- Indexes for table `returns`
@@ -180,25 +157,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `BookID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `BookID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `borrowings`
 --
 ALTER TABLE `borrowings`
-  MODIFY `BorrowID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `categories`
---
-ALTER TABLE `categories`
-  MODIFY `CategoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `BorrowID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `returns`
 --
 ALTER TABLE `returns`
-  MODIFY `ReturnID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ReturnID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -209,12 +180,6 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `books`
---
-ALTER TABLE `books`
-  ADD CONSTRAINT `books_ibfk_1` FOREIGN KEY (`CategoryID`) REFERENCES `categories` (`CategoryID`);
 
 --
 -- Constraints for table `borrowings`
